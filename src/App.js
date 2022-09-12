@@ -1,93 +1,66 @@
-import { RegularList } from './RegularList';
-import { SplitScreen } from './SplitScreen';
-import { SmallPersonListItem } from './people/SmallPersonListItem';
-import { LargePersonListItem } from './people/LargePersonListItem';
-import { SmallProductListItem } from './product/SmallProductListItem';
-import { LargeProductListItem } from './product/LargeProductListItem';
+import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom";
+import styled from 'styled-components'
+import Chapter1 from "./Chapter1/index";
+import { Chapter2 } from "./Chapter2/index";
+import Chapter3 from "./Chapter3/index";
 
 
-const people = [{
-	name: 'John Doe',
-	age: 54,
-	hairColor: 'brown',
-	hobbies: ['swimming', 'bicycling', 'video games'],
-}, {
-	name: 'Brenda Smith',
-	age: 33,
-	hairColor: 'black',
-	hobbies: ['golf', 'mathematics'],
-}, {
-	name: 'Jane Garcia',
-	age: 27,
-	hairColor: 'blonde',
-	hobbies: ['biology', 'medicine', 'gymnastics'],
-}];
 
-const products = [{
-	name: 'Flat-Screen TV',
-	price: '$300',
-	description: 'Huge LCD screen, a great deal',
-	rating: 4.5,
-}, {
-	name: 'Basketball',
-	price: '$10',
-	description: 'Just like the pros use',
-	rating: 3.8,
-}, {
-	name: 'Running Shoes',
-	price: '$120',
-	description: 'State-of-the-art technology for optimum running',
-	rating: 4.2,
-}];
- 
+const Ul = styled.ul`
+list-style-type: none;
+margin: 0;
+padding: 0;
+display:flex;
+`;
+
+const Li = styled.li`
+padding:0 8px;
+`;
 
 
-const LeftHandComponent = ({name}) => {
-  return <h1 style={{ backgroundColor: '#3cb371' }}>{name}</h1>
-}
-const RightHandComponent = ({message}) => {
-  return <p style={{ backgroundColor: '#ff6347' }}>{message}</p>
+const Home = () => {
+
+  return <>
+  <h1>Welcome to React Design Patterns</h1>
+  <h3>1 - Layouts</h3>
+  <p>StyledComponents, SplitLayout, Lists</p>
+  <h3>2 - Container Components</h3>
+  <p>Express Server</p>
+  <h3>3 - Controlled and Uncontrolled Components</h3>
+  <p></p>
+  <h3>4 - Higher-Order Components</h3>
+  <p></p>
+  <h3>5 - Custom Hooks Patterns</h3>
+  <p></p>
+  <h3>6 - Functional Programming and React</h3>
+  <p></p>
+  </>
+
+
 }
 
 function App() {
   return (
-    <>
-    <h2>Persons</h2>
-    <RegularList
-      items={people}
-      resourceName="person"
-      itemComponent={SmallPersonListItem}
-      />
+    <BrowserRouter>
+      <div>
+        <nav>
+          <Ul>
+            <Li><NavLink style={{textDecoration:'none'}} to="/">Home</NavLink></Li>
+            <Li><NavLink style={{textDecoration:'none'}} to="/chapter1">Chapter 1</NavLink></Li>
+            <Li><NavLink style={{textDecoration:'none'}} to="/chapter2">Chapter 2</NavLink></Li>
+            <Li><NavLink style={{textDecoration:'none'}} to="/chapter3">Chapter 3</NavLink></Li>
+          </Ul>
+        </nav>
 
-    <RegularList
-      items={people}
-      resourceName="person"
-      itemComponent={LargePersonListItem}
-      />
-
-      <h2>Products</h2>
-
-<RegularList
-      items={products}
-      resourceName="product"
-      itemComponent={SmallProductListItem}
-      />
-
-    <RegularList
-      items={products}
-      resourceName="product"
-      itemComponent={LargeProductListItem}
-      />
-
-      <h2>Split Screen</h2>
-
-    <SplitScreen leftWeight={1} rightWeight={3}>
-    <LeftHandComponent name="Teste" />
-    <RightHandComponent message="Teste." />
-   </SplitScreen>
-      </>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/chapter1" element={<Chapter1 />} />
+          <Route path="/chapter2" element={<Chapter2 />} />
+          <Route path="/chapter3" element={<Chapter3 />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
-} 
+}
 
 export default App;
- 

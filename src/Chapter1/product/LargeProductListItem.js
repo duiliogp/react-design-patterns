@@ -6,7 +6,7 @@ export const LargeProductListItem = ({product}) => {
     <>
       <h3>{name}</h3>
       <p>{price}</p>
-      <h3>Description</h3>
+      <h5>Description</h5>
       <p>{description}</p>
       <p>Average rating: {rating}</p>
     </>
