@@ -1,8 +1,11 @@
 import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom";
 import styled from 'styled-components'
-import Chapter1 from "./Chapter1/index";
-import { Chapter2 } from "./Chapter2/index";
-import Chapter3 from "./Chapter3/index";
+import Chapter1 from "./Chapter1_Layouts/index";
+import { Chapter2 } from "./Chapter2_Containers/index";
+import Chapter3 from "./Chapter3_Controlled_Uncontrolled/index";
+import Chapter4 from "./Chapter4_High_Order_Components/index";
+import Chapter5 from "./Chapter5_Hooks/index";
+import Chapter6 from "./Chapter6/index";
 
 
 
@@ -21,19 +24,7 @@ padding:0 8px;
 const Home = () => {
 
   return <>
-  <h1>Welcome to React Design Patterns</h1>
-  <h3>1 - Layouts</h3>
-  <p>StyledComponents, SplitLayout, Lists</p>
-  <h3>2 - Container Components</h3>
-  <p>Express Server</p>
-  <h3>3 - Controlled and Uncontrolled Components</h3>
-  <p></p>
-  <h3>4 - Higher-Order Components</h3>
-  <p></p>
-  <h3>5 - Custom Hooks Patterns</h3>
-  <p></p>
-  <h3>6 - Functional Programming and React</h3>
-  <p></p>
+  <h1>React Design Patterns</h1>
   </>
 
 
@@ -49,6 +40,9 @@ function App() {
             <Li><NavLink style={{textDecoration:'none'}} to="/chapter1">Chapter 1</NavLink></Li>
             <Li><NavLink style={{textDecoration:'none'}} to="/chapter2">Chapter 2</NavLink></Li>
             <Li><NavLink style={{textDecoration:'none'}} to="/chapter3">Chapter 3</NavLink></Li>
+            <Li><NavLink style={{textDecoration:'none'}} to="/chapter4">Chapter 4</NavLink></Li>
+            <Li><NavLink style={{textDecoration:'none'}} to="/chapter5">Chapter 5</NavLink></Li>
+            <Li><NavLink style={{textDecoration:'none'}} to="/chapter6">Chapter 6</NavLink></Li>
           </Ul>
         </nav>
 
@@ -57,6 +51,9 @@ function App() {
           <Route path="/chapter1" element={<Chapter1 />} />
           <Route path="/chapter2" element={<Chapter2 />} />
           <Route path="/chapter3" element={<Chapter3 />} />
+          <Route path="/chapter4" element={<Chapter4 />} />
+          <Route path="/chapter5" element={<Chapter5 />} />
+          <Route path="/chapter6" element={<Chapter6 />} />
         </Routes>
       </div>
     </BrowserRouter>
