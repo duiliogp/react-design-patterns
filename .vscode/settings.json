@@ -1,0 +1,19 @@
+{
+  "files.exclude": {
+    "public": true,
+    "src/index.css": true,
+    "src/logo.svg": true,
+    "src/setupTests.js": true,
+    "src/reportWebVitals.js": true,
+    "src/App.test.js": true,
+    ".gitignore": true,
+    "README.md": true,
+    "package-lock.json": true,
+    "src/index.js": true,
+    
+    "src/Chapter1_Layouts": true,
+    "src/Chapter2_Containers": true,
+    "src/Chapter3_Controlled_Uncontrolled": true,
+
+  }
+}
