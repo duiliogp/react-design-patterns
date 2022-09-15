@@ -65,9 +65,13 @@ app.get('/users/:id', (req, res) => {
 
 app.post('/users/:id', (req, res) => {
   const { id } = req.params;
-  const { user: updatedUser } = req.body;
-  users = users.map(user => user.id === id ? updatedUser : user);
-  res.json(users.find(user => user.id === parseInt(id)));
+  if(req.body === undefined){
+    return console.log('Data isn\'t sent!');
+  }
+  const {user:updatedUser} = req.body;
+  users = users.map(u => u.id === parseInt(id) ? updatedUser : u);
+  const userFind = users.find(u => u.id === parseInt(id));
+  res.json(userFind);
 });
 
 app.get('/users', (req, res) => {
