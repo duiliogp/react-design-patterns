@@ -1,0 +1,21 @@
+
+import { useResource } from './useResource';
+
+export const ProductInfo = ({ productId  }) => {
+
+  const product = useResource(`/products/${productId}`);
+  const { name, price, description, rating } = product || {}  ;
+
+  return product ? 
+
+  (
+    <>
+      <h3>{name}</h3>
+      <p>{price}</p>
+      <p><b>Description</b>: {description}</p>
+      <h4>Average Rating: {rating}</h4>
+      
+    </> 
+  ) : <p>Loading product...</p>;
+ 
+}

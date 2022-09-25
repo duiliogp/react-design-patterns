@@ -1,8 +1,6 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios';
 
-axios.defaults.baseURL = 'http://localhost:8080';
-
 export const withEditableUser = (Component, userId) => {
   return props => {
 
@@ -15,6 +13,7 @@ export const withEditableUser = (Component, userId) => {
 
     useEffect(() => {
       (async () => {
+        axios.defaults.baseURL = `http://localhost:${process.env.REACT_APP_SERVER_PORT}`;
         const response = await axios.get(`/users/${userId}`);
         setOriginalUser(response.data);
         setUser(response.data);
@@ -26,8 +25,7 @@ export const withEditableUser = (Component, userId) => {
     };
 
     const onSaveUser = async () => {
-      console.log('toSave:',user);
-      const response = await axios.post(`/users/${userId}`, { user });
+      const response = await axios.post( `/users/${userId}`, { user } );
       setOriginalUser(response.data);
       setUser(response.data);
     };

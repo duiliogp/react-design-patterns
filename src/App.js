@@ -4,7 +4,7 @@ import Chapter1 from "./Chapter1_Layouts/index";
 import { Chapter2 } from "./Chapter2_Containers/index";
 import Chapter3 from "./Chapter3_Controlled_Uncontrolled/index";
 import Chapter4 from "./Chapter4_High_Order_Components/index";
-import Chapter5 from "./Chapter5_Hooks/index";
+import Chapter5 from "./Chapter5_Custom_Hooks/index";
 import Chapter6 from "./Chapter6/index";
 
 

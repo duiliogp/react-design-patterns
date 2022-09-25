@@ -1,7 +1,10 @@
 import React from 'react'
-import { withEditableUser } from './withEditableUser'
+// import { withEditableUser } from './withEditableUser'
+import { withEditableResource } from './withEditableResource'
 
-export const UserInfoForm = withEditableUser(({ user, onChangeUser, onSaveUser, onResetUser }) => {
+// export const UserInfoForm = withEditableUser(({ user, onChangeUser, onSaveUser, onResetUser }) => {
+
+export const UserInfoForm = withEditableResource(({ user, onChangeUser, onSaveUser, onResetUser }) => {
   const { name, age, hairColor } = user || {};
 
   return user ? (
@@ -22,8 +25,11 @@ export const UserInfoForm = withEditableUser(({ user, onChangeUser, onSaveUser, 
       </label>
 
       <br /><br />
-      <button onClick={onResetUser}>Reset</button> <button onClick={onSaveUser}>Save</button>
+      <button onClick={onSaveUser}>Save</button>
+      <br />
+      <br />
+      <button onClick={onResetUser}>Reset</button>
 
     </>
   ) : <p>loading...</p>
-}, '1'); 
+}, 'users/1', 'user');  
